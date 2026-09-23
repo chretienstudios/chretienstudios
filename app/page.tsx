@@ -3,6 +3,7 @@ import { Wordmark } from "@/components/Nav";
 import Poster from "@/components/Poster";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
+import ClientLogo from "@/components/ClientLogo";
 import {
   CLIENTS,
   PROCESS,
@@ -12,7 +13,6 @@ import {
   SOUND_FAMILIAR,
   STAT,
   TESTIMONIALS,
-  TICKER,
   WHY,
 } from "@/lib/content";
 
@@ -42,9 +42,6 @@ export default function Home() {
           <div className="hero-shade" aria-hidden="true" />
 
           <div className="hero-copy">
-            <div className="hero-mark">
-              <Wordmark />
-            </div>
             <h1>
               <span className="h1-white">Brands built for</span>
               <span className="h1-pink">Matchday</span>
@@ -64,26 +61,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* TICKER */}
-        <div className="ticker" aria-hidden="true">
-          <div className="ticker-track">
-            {[...TICKER, ...TICKER, ...TICKER, ...TICKER].map((t, i) => (
-              <span key={i}>
-                {t}
-                <i />
-              </span>
-            ))}
-          </div>
-        </div>
-
         {/* CLIENTS */}
         <Reveal>
           <div className="clients">
             <span className="clients-label">Trusted by</span>
             {CLIENTS.map((c) => (
-              <span key={c} className="clients-name">
-                {c}
-              </span>
+              <ClientLogo key={c.name} name={c.name} src={c.logo} />
             ))}
           </div>
         </Reveal>
