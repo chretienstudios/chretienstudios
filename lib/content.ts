@@ -27,8 +27,10 @@ export const PALETTE: Record<"pink" | "blue" | "gold" | "teal" | "violet" | "red
 /** Clubs worked with. Confirm each club is happy to be named before publishing. */
 export const CLIENTS = [
   { name: "Academica SC", logo: "/logos/academica-sc.png" },
-  { name: "Napier City Rovers", logo: "/logos/napier-city-rovers.png" },
   { name: "Ngaruawahia United", logo: "/logos/ngaruawahia-united.png" },
+  { name: "Cashmere Technical FC", logo: "/logos/cashmere-technical-fc.png" },
+  { name: "UMFA", logo: "/logos/umfa.png" },
+  { name: "Tindastóll", logo: "/logos/tindastoll.png" },
 ];
 
 export const SERVICES = [
