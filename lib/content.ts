@@ -24,53 +24,99 @@ export const PALETTE: Record<"pink" | "blue" | "gold" | "teal" | "violet" | "red
   red: ["#ff4b2b", "#7a0f1e", "#1a050a"],
 };
 
-export const HERO_POSTERS: (PosterData & { className: string })[] = [
-  { className: "hp-1", kicker: "Full time", title: "Rovers 3–1", big: "3", colors: PALETTE.teal },
-  { className: "hp-2", kicker: "Starting XI", title: "Line-up", big: "XI", colors: PALETTE.violet },
-  { className: "hp-3", kicker: "Matchday", title: "Harbour City", sub: "Sat · 7:30PM", big: "VS", colors: PALETTE.pink },
-  { className: "hp-4", kicker: "New signing", title: "Welcome", big: "09", colors: PALETTE.gold },
-  { className: "hp-5", kicker: "Player of the match", title: "MVP", big: "10", colors: PALETTE.blue },
-];
+/** Clubs worked with. Confirm each club is happy to be named before publishing. */
+export const CLIENTS = ["Academica SC", "Napier City Rovers", "Ngaruawahia United"];
 
 export const SERVICES = [
   {
-    top: "Full brand &",
-    accent: "identity refresh",
-    lead: "For clubs looking to stand out from the rest.",
-    body: "Whether you're levelling up an existing look or building your badge, colours and kit language from the ground up, we craft an identity your supporters wear with pride.",
+    top: "Club identity",
+    accent: "from the badge up",
+    lead: "Look like a club worth backing.",
+    body: "A crest, colours and kit language that supporters are proud to wear, and that sponsors are proud to sit next to. Starting fresh or refreshing what you have, we build the whole look with you.",
     includes: [
-      "Crest & logo systems",
-      "Kit & merchandise graphics",
-      "Brand guidelines & templates",
-      "Sponsor lock-ups",
+      "Crest & badge design",
+      "Colour, type & kit graphics",
+      "Brand guidelines",
+      "Sponsor lock-ups & merchandise",
     ],
     poster: { kicker: "Brand identity", title: "New era", big: "FC", colors: PALETTE.red } as PosterData,
   },
   {
-    top: "Bespoke",
-    accent: "matchday graphics",
-    lead: "Never miss a beat.",
-    body: "Fixtures, line-ups, goals and full time, delivered on a system built for speed so every moment lands while the crowd is still loud.",
+    top: "Matchday",
+    accent: "ready before kick-off",
+    lead: "Every fixture, on brand.",
+    body: "We prepare your matchday system ahead of the season, so match week is a case of dropping in the details. Fixtures, line-ups, goals and full time all look like they belong to the same club.",
     includes: [
-      "High-engagement hero artwork",
+      "Matchday & fixture posters",
       "Line-up, score & result templates",
-      "Signings & milestone announcements",
-      "On-demand, fan-focused content",
+      "Signings & milestone posts",
+      "Champions and milestone prints",
     ],
     poster: { kicker: "Matchday", title: "Derby day", big: "VS", colors: PALETTE.pink } as PosterData,
   },
   {
-    top: "Agency &",
-    accent: "sponsor creative",
-    lead: "Extra firepower for your roster.",
-    body: "Athlete branding and campaign creative for agencies and partners representing talent and clubs. Consistent, fast and always on brief.",
+    top: "Sponsorship",
+    accent: "creative that earns",
+    lead: "Give sponsors something to back.",
+    body: "Local businesses want to support their clubs. Strong branding and polished assets give them a reason to say yes, and the revenue can be significant before a ball is kicked.",
     includes: [
-      "Athlete personal branding",
-      "Campaign & sponsor creative",
-      "Social packs & templates",
-      "Screen & LED-ready assets",
+      "Sponsorship proposal decks",
+      "Player sponsorship packages",
+      "Billboard & signage artwork",
+      "Match-pack templates & magazines",
     ],
-    poster: { kicker: "Campaign", title: "Launch", big: "01", colors: PALETTE.violet } as PosterData,
+    poster: { kicker: "Sponsorship", title: "Back the club", big: "$", colors: PALETTE.violet } as PosterData,
+  },
+];
+
+export const SOUND_FAMILIAR = [
+  "You're a small team with no in-house designer.",
+  "Match week turns into a scramble for graphics.",
+  "Your sponsors want more than a logo on a shirt.",
+];
+
+export const WHY = [
+  {
+    n: "01",
+    title: "Personal",
+    text: "You work directly with the person designing your season. No account managers, no hand-offs.",
+  },
+  {
+    n: "02",
+    title: "Always on",
+    text: "Available seven days a week, ready to deliver on demand when fixtures, signings or news land.",
+  },
+  {
+    n: "03",
+    title: "Instant changes",
+    text: "Fixtures move. With live amendments, updates go out fast without long email chains.",
+  },
+  {
+    n: "04",
+    title: "Built to earn",
+    text: "Branding and sponsorship assets that give local businesses a reason to back your club.",
+  },
+];
+
+export const STAT = {
+  number: "$15,000+",
+  label: "raised in sponsorship before the season even began",
+  who: "Napier City Rovers",
+};
+
+/** Quotes taken from the 2026 Matchday Package. Confirm each person is happy for them to be published. */
+export const TESTIMONIALS = [
+  {
+    quote:
+      "It's great when the graphics are premade ahead of time in case we need to change any. It's just right for the fast-paced USL2/USLW summer season.",
+    name: "Simon Bettencourt",
+    role: "President, Academica SC",
+  },
+  {
+    quote:
+      "With chretienstudios' help we raised over $15,000 before the season even began. The graphics played a huge role in capturing local sponsors.",
+    name: "Bill Robertson",
+    role: "Commercial Officer, Napier City Rovers",
   },
 ];
 
@@ -87,7 +133,7 @@ export const PROCESS = [
   { n: "01", title: "Kick-off call", text: "We learn your club, your supporters and where your content needs to work harder." },
   { n: "02", title: "Identity & direction", text: "Bold concepts, colour and type. We lock in a look that feels unmistakably yours." },
   { n: "03", title: "Build the system", text: "Templates and asset packs for every matchday moment, ready for your team to use." },
-  { n: "04", title: "Own the season", text: "Ongoing support, reactive turnarounds and fresh creative all year round." },
+  { n: "04", title: "Own the season", text: "Ongoing support, quick turnarounds and fresh creative all year round." },
 ];
 
 export const TICKER = [
@@ -96,7 +142,7 @@ export const TICKER = [
   "Crest design",
   "Line-up templates",
   "Signing announcements",
-  "Sponsor creative",
+  "Sponsorship decks",
   "Social packs",
   "Kit graphics",
 ];

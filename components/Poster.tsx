@@ -17,7 +17,6 @@ export default function Poster({ kicker, title, sub, big, image, colors, classNa
         <img className="poster-img" src={image} alt={`${kicker}: ${title}`} loading="lazy" />
       ) : null}
       <div className="poster-streaks" aria-hidden="true" />
-      <div className="poster-dots" aria-hidden="true" />
       {big ? (
         <span className="poster-big" aria-hidden="true">
           {big}

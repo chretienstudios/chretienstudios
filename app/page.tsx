@@ -3,7 +3,18 @@ import { Wordmark } from "@/components/Nav";
 import Poster from "@/components/Poster";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
-import { HERO_POSTERS, PROCESS, SERVICES, SHOWCASE, SITE, TICKER } from "@/lib/content";
+import {
+  CLIENTS,
+  PROCESS,
+  SERVICES,
+  SHOWCASE,
+  SITE,
+  SOUND_FAMILIAR,
+  STAT,
+  TESTIMONIALS,
+  TICKER,
+  WHY,
+} from "@/lib/content";
 
 function Scribble() {
   return (
@@ -25,25 +36,22 @@ export default function Home() {
       <Nav />
 
       <main id="top">
-        {/* HERO */}
+        {/* HERO: artwork lives in /public/hero.jpg (+ optional /public/hero-mobile.jpg) */}
         <section className="hero">
-          <div className="hero-lights" aria-hidden="true" />
-          <div className="hero-glow" aria-hidden="true" />
-
-          <div className="hero-stage" aria-hidden="true">
-            {HERO_POSTERS.map((p) => (
-              <Poster key={p.className} {...p} />
-            ))}
-          </div>
+          <div className="hero-bg" aria-hidden="true" />
+          <div className="hero-shade" aria-hidden="true" />
 
           <div className="hero-copy">
+            <div className="hero-mark">
+              <Wordmark />
+            </div>
             <h1>
               <span className="h1-white">Brands built for</span>
               <span className="h1-pink">Matchday</span>
             </h1>
             <p className="hero-sub">
-              Brand identity and matchday graphics for sports clubs and agencies that want to look as
-              good as they play.
+              Bespoke brand identity and matchday graphics for sports clubs and agencies. Personal,
+              fast and flexible.
             </p>
             <div className="hero-cta">
               <a href="#contact" className="btn btn-pink">
@@ -68,11 +76,23 @@ export default function Home() {
           </div>
         </div>
 
+        {/* CLIENTS */}
+        <Reveal>
+          <div className="clients">
+            <span className="clients-label">Trusted by</span>
+            {CLIENTS.map((c) => (
+              <span key={c} className="clients-name">
+                {c}
+              </span>
+            ))}
+          </div>
+        </Reveal>
+
         {/* SERVICES */}
         <section id="services" className="section">
           <Reveal>
             <h2 className="section-title">
-              Elevating <span className="u-wrap">your club<Scribble /></span>
+              What we <span className="u-wrap">do<Scribble /></span>
             </h2>
           </Reveal>
 
@@ -87,7 +107,7 @@ export default function Home() {
                   </h3>
                   <p className="service-lead">{s.lead}</p>
                   <p className="service-body">{s.body}</p>
-                  <p className="service-inc">Includes:</p>
+                  <p className="service-inc">What&apos;s covered</p>
                   <ul>
                     {s.includes.map((x) => (
                       <li key={x}>{x}</li>
@@ -99,6 +119,32 @@ export default function Home() {
           </div>
         </section>
 
+        {/* SOUND FAMILIAR */}
+        <section className="section sound">
+          <Reveal>
+            <h2 className="section-title">
+              Sound <span className="u-wrap">familiar?<Scribble /></span>
+            </h2>
+          </Reveal>
+          <ul className="sound-list">
+            {SOUND_FAMILIAR.map((s, i) => (
+              <li key={s}>
+                <Reveal delay={i * 100}>
+                  <p>{s}</p>
+                </Reveal>
+              </li>
+            ))}
+          </ul>
+          <Reveal>
+            <div className="sound-cta">
+              <p>Then let&apos;s talk.</p>
+              <a href="#contact" className="btn btn-pink">
+                Start a project
+              </a>
+            </div>
+          </Reveal>
+        </section>
+
         {/* SHOWCASE */}
         <section id="work" className="section section-dark">
           <Reveal>
@@ -107,7 +153,8 @@ export default function Home() {
                 Built for <span className="u-wrap">the crowd<Scribble /></span>
               </h2>
               <p className="section-note">
-                Sample matchday concepts. Every club gets a bespoke system, not a template.
+                Sample matchday concepts. Every club gets a system made for them, not an off-the-shelf
+                template.
               </p>
             </div>
           </Reveal>
@@ -121,11 +168,63 @@ export default function Home() {
           </div>
         </section>
 
+        {/* WHY US */}
+        <section id="why" className="section">
+          <Reveal>
+            <h2 className="section-title">
+              Why <span className="u-wrap">clubs choose us<Scribble /></span>
+            </h2>
+          </Reveal>
+          <div className="why">
+            {WHY.map((w, i) => (
+              <Reveal key={w.n} delay={i * 90}>
+                <div className="why-item">
+                  <span className="why-n">{w.n}</span>
+                  <h3>{w.title}</h3>
+                  <p>{w.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <div className="stat">
+              <span className="stat-num">{STAT.number}</span>
+              <p>
+                {STAT.label}
+                <small>{STAT.who}</small>
+              </p>
+            </div>
+          </Reveal>
+        </section>
+
+        {/* TESTIMONIALS */}
+        <section className="section section-dark">
+          <Reveal>
+            <h2 className="section-title">
+              In their <span className="u-wrap">words<Scribble /></span>
+            </h2>
+          </Reveal>
+          <div className="quotes">
+            {TESTIMONIALS.map((q, i) => (
+              <Reveal key={q.name} delay={i * 120}>
+                <figure className="quote">
+                  <blockquote>{q.quote}</blockquote>
+                  <figcaption>
+                    <strong>{q.name}</strong>
+                    <span>{q.role}</span>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
         {/* PROCESS */}
         <section id="process" className="section">
           <Reveal>
             <h2 className="section-title">
-              How we <span className="u-wrap">work<Scribble /></span>
+              How it <span className="u-wrap">works<Scribble /></span>
             </h2>
           </Reveal>
           <ol className="process">
@@ -143,7 +242,6 @@ export default function Home() {
 
         {/* CONTACT */}
         <section id="contact" className="section contact">
-          <div className="contact-glow" aria-hidden="true" />
           <Reveal>
             <h2 className="contact-title">
               <span>Let&apos;s own</span>
@@ -154,8 +252,8 @@ export default function Home() {
             <Reveal>
               <div className="contact-side">
                 <p>
-                  Tell us about your club or roster and we&apos;ll come back with ideas, not a sales
-                  pitch.
+                  Tell us about your club or roster and we&apos;ll come back with ideas and a clear quote,
+                  not a sales pitch. Partnerships are tailored to your club and season.
                 </p>
                 <a className="contact-link" href={`mailto:${SITE.email}`}>
                   {SITE.email}

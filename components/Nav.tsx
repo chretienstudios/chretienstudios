@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { SITE } from "@/lib/content";
 
 const LINKS = [
-  { href: "#work", label: "Work" },
   { href: "#services", label: "Services" },
+  { href: "#work", label: "Work" },
+  { href: "#why", label: "Why us" },
   { href: "#process", label: "Process" },
 ];
 
