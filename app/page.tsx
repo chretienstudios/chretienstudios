@@ -8,7 +8,6 @@ import {
   CLIENTS,
   PACKAGES,
   SERVICES,
-  SHOWCASE,
   SITE,
   SOUND_FAMILIAR,
   TESTIMONIALS,
@@ -122,9 +121,6 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal>
-            <p className="pkg-label">For clubs</p>
-          </Reveal>
           <div className="pkg-grid">
             {PACKAGES.clubs.map((p, i) => (
               <Reveal key={p.name} delay={i * 110}>
@@ -143,16 +139,6 @@ export default function Home() {
             </figure>
           </Reveal>
 
-          <Reveal>
-            <p className="pkg-label pkg-label-2">For agencies</p>
-          </Reveal>
-          <div className="pkg-grid pkg-grid-2">
-            {PACKAGES.agencies.map((p, i) => (
-              <Reveal key={p.name} delay={i * 110}>
-                <PackageCard p={p} />
-              </Reveal>
-            ))}
-          </div>
           <p className="pkg-foot">Not sure which fits? Tell me about your club and I&apos;ll point you to the right one, with a clear quote.</p>
         </section>
 
@@ -196,13 +182,18 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <div className="showcase">
-            {SHOWCASE.map((p, i) => (
-              <Reveal key={p.title} delay={(i % 3) * 100} className={p.cls ?? ""}>
-                <Poster {...p} />
-              </Reveal>
-            ))}
-          </div>
+          <Reveal>
+            <figure className="work-banner">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/work/cashmere-banner.jpg"
+                alt="Cashmere Technical FC creative partnership: matchday graphics, programmes, social posts and sponsorship brochure"
+                width={3200}
+                height={667}
+                loading="lazy"
+              />
+            </figure>
+          </Reveal>
         </section>
 
         {/* STUDIO (about): add a photo by setting SITE.photo in lib/content.ts */}

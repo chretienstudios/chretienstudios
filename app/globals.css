@@ -1502,3 +1502,26 @@ ol {
 .contact-title .h1-pink {
   color: #8a8a94;
 }
+
+/* ---------- work banner ---------- */
+.work-banner {
+  margin: 0;
+  box-shadow: 0 30px 60px -24px rgba(0, 0, 0, 0.35);
+  background: #f0a800;
+}
+.work-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+@media (max-width: 680px) {
+  .work-banner {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .work-banner img {
+    width: auto;
+    height: 240px;
+    max-width: none;
+  }
+}
