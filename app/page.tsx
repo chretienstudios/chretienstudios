@@ -12,7 +12,6 @@ import {
   SOUND_FAMILIAR,
   TESTIMONIALS,
 } from "@/lib/content";
-import type { Package } from "@/lib/content";
 
 function Scribble() {
   return (
@@ -82,49 +81,38 @@ export default function Home() {
         {/* SERVICES */}
         <section id="services" className="section">
           <Reveal>
-            <h2 className="section-title">
-              What we <span className="u-wrap">do<Scribble /></span>
-            </h2>
+            <div className="section-head">
+              <h2 className="section-title">
+                What we <span className="u-wrap">do<Scribble /></span>
+              </h2>
+              <p className="section-note pkg-intro">{PACKAGES.intro}</p>
+            </div>
           </Reveal>
 
           <div className="services">
             {SERVICES.map((s, i) => (
               <Reveal key={s.top} delay={i * 110}>
                 <article className="service">
-                  <Poster {...s.poster} className="service-poster" />
+                  <div className="service-media">
+                    <Poster {...s.poster} className="service-poster" />
+                    {s.badge ? <span className="pkg-badge">{s.badge}</span> : null}
+                  </div>
                   <h3 className="service-title">
                     <span>{s.top}</span>
                     <em>{s.accent}</em>
                   </h3>
                   <p className="service-lead">{s.lead}</p>
                   <p className="service-body">{s.body}</p>
-                  <p className="service-inc">What&apos;s covered</p>
+                  <p className="service-inc">What&apos;s included</p>
                   <ul>
                     {s.includes.map((x) => (
                       <li key={x}>{x}</li>
                     ))}
                   </ul>
+                  <a href="#contact" className="btn btn-ink service-cta">
+                    Enquire
+                  </a>
                 </article>
-              </Reveal>
-            ))}
-          </div>
-        </section>
-
-        {/* PACKAGES */}
-        <section id="packages" className="section packages">
-          <Reveal>
-            <div className="section-head">
-              <h2 className="section-title">
-                Creative <span className="u-wrap">packages<Scribble /></span>
-              </h2>
-              <p className="section-note pkg-intro">{PACKAGES.intro}</p>
-            </div>
-          </Reveal>
-
-          <div className="pkg-grid">
-            {PACKAGES.clubs.map((p, i) => (
-              <Reveal key={p.name} delay={i * 110}>
-                <PackageCard p={p} />
               </Reveal>
             ))}
           </div>
@@ -138,7 +126,6 @@ export default function Home() {
               </figcaption>
             </figure>
           </Reveal>
-
           <p className="pkg-foot">Not sure which fits? Tell me about your club and I&apos;ll point you to the right one, with a clear quote.</p>
         </section>
 
@@ -301,25 +288,5 @@ export default function Home() {
         </a>
       </footer>
     </>
-  );
-}
-
-function PackageCard({ p }: { p: Package }) {
-  return (
-    <article className={`pkg${p.featured ? " pkg-featured" : ""}`}>
-      {p.badge && <span className="pkg-badge">{p.badge}</span>}
-      <p className="pkg-kicker">Creative</p>
-      <h3 className="pkg-name">{p.name}</h3>
-      <p className="pkg-term">{p.term}</p>
-      <p className="pkg-blurb">{p.blurb}</p>
-      <ul className="pkg-list">
-        {p.includes.map((x) => (
-          <li key={x}>{x}</li>
-        ))}
-      </ul>
-      <a href="#contact" className={`btn ${p.featured ? "btn-pink" : "btn-ink"}`}>
-        Enquire
-      </a>
-    </article>
   );
 }

@@ -1525,3 +1525,31 @@ ol {
     max-width: none;
   }
 }
+
+/* ---------- services as packages ---------- */
+.services > .reveal {
+  display: flex;
+}
+.service {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.service-media {
+  position: relative;
+}
+.service ul {
+  flex: 1;
+}
+.service-cta {
+  align-self: flex-start;
+  margin-top: 28px;
+}
+.service-media .pkg-badge {
+  z-index: 3;
+  background: #0a0a0a;
+  color: #fff;
+}
+.pkg-foot {
+  text-align: center;
+}
