@@ -6,9 +6,7 @@ import { SITE } from "@/lib/content";
 const LINKS = [
   { href: "#services", label: "Services" },
   { href: "#work", label: "Work" },
-  { href: "#why", label: "Why us" },
   { href: "#studio", label: "Studio" },
-  { href: "#process", label: "Process" },
 ];
 
 export function Wordmark() {
@@ -38,11 +36,14 @@ export default function Nav() {
       </a>
 
       <nav className={`nav-links ${open ? "open" : ""}`} aria-label="Primary">
-        {LINKS.map((l) => (
-          <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
-            {l.label}
-          </a>
-        ))}
+        <div className="nav-mid">
+          {LINKS.map((l) => (
+            <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
+              {l.label}
+            </a>
+          ))}
+        </div>
+        <div className="nav-right">
         <a
           href={SITE.instagram}
           target="_blank"
@@ -59,6 +60,7 @@ export default function Nav() {
         <a href="#contact" className="btn btn-light nav-cta" onClick={() => setOpen(false)}>
           Contact us
         </a>
+        </div>
       </nav>
 
       <button

@@ -3,7 +3,7 @@
   --bg-2: #111112;
   --ink: #ffffff;
   --mute: #a4a4ad;
-  --pink: #ff3560;
+  --accent: #ffffff;
   --line: rgba(255, 255, 255, 0.12);
   --display: var(--font-display), "Helvetica Neue", Arial, sans-serif;
   --body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
@@ -54,8 +54,8 @@ ol {
 }
 
 ::selection {
-  background: var(--pink);
-  color: #fff;
+  background: var(--accent);
+  color: #111;
 }
 
 /* ---------- buttons ---------- */
@@ -81,17 +81,17 @@ ol {
   color: #111;
 }
 .btn-light:hover {
-  background: var(--pink);
-  color: #fff;
+  background: #e4e4e8;
+  color: #111;
 }
 .btn-pink {
-  background: var(--pink);
-  color: #fff;
-  box-shadow: 0 10px 40px -10px var(--pink);
+  background: #fff;
+  color: #111;
 }
 .btn-pink:hover {
-  background: #fff;
-  color: var(--pink);
+  background: transparent;
+  color: #fff;
+  box-shadow: inset 0 0 0 1.5px #fff;
 }
 .btn-ghost {
   background: transparent;
@@ -158,7 +158,7 @@ ol {
   right: 0;
   bottom: -2px;
   height: 2px;
-  background: var(--pink);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
@@ -169,6 +169,34 @@ ol {
 .nav-ig {
   display: grid;
   place-items: center;
+}
+.nav-mid,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+@media (min-width: 861px) {
+  /* logo left, links centred, Instagram + Contact us right */
+  .nav {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+  }
+  .nav-links {
+    display: contents;
+  }
+  .nav-mid {
+    grid-column: 2;
+    justify-self: center;
+  }
+  .nav-right {
+    grid-column: 3;
+    justify-self: end;
+    gap: 22px;
+  }
+  .nav-logo {
+    justify-self: start;
+  }
 }
 .nav-cta {
   padding: 10px 18px;
@@ -209,9 +237,9 @@ ol {
 
 /* ---------- posters ---------- */
 .poster {
-  --a: #ff3560;
-  --b: #5b0f4a;
-  --c: #12081f;
+  --a: #3a3a42;
+  --b: #1c1c22;
+  --c: #0a0a0c;
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 5;
@@ -357,16 +385,23 @@ ol {
   animation-delay: 0.3s;
 }
 .h1-pink {
-  color: var(--pink);
+  color: var(--accent);
   font-size: clamp(38px, 6.3vw, 116px);
   line-height: 0.95;
   animation-delay: 0.45s;
+}
+/* landing page headline: smaller than the section headings */
+.hero .h1-white {
+  font-size: clamp(19px, 2.9vw, 52px);
+}
+.hero .h1-pink {
+  font-size: clamp(35px, 5.8vw, 106px);
 }
 .hero-sub {
   margin: clamp(14px, 2vw, 26px) auto 0;
   max-width: 560px;
   color: #d3d3da;
-  font-size: clamp(15px, 1.2vw, 17px);
+  font-size: clamp(15px, 1.15vw, 17px);
   animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) 0.6s both;
 }
 .hero-cta {
@@ -399,13 +434,13 @@ ol {
 /* ---------- ticker ---------- */
 .ticker {
   overflow: hidden;
-  background: var(--pink);
+  background: var(--accent);
   color: #fff;
   transform: rotate(-1.2deg) scale(1.03);
   margin: -14px 0 36px;
   position: relative;
   z-index: 5;
-  box-shadow: 0 20px 60px -20px rgba(255, 53, 96, 0.6);
+  box-shadow: 0 20px 60px -20px rgba(255, 255, 255, 0.25);
 }
 .ticker-track {
   display: flex;
@@ -484,7 +519,7 @@ ol {
   bottom: -0.16em;
   width: 100%;
   height: 0.16em;
-  color: var(--pink);
+  color: var(--accent);
   overflow: visible;
 }
 
@@ -529,7 +564,7 @@ ol {
   font-style: normal;
 }
 .service-title em {
-  color: var(--pink);
+  color: var(--accent);
 }
 .service-lead {
   margin-top: 30px;
@@ -559,7 +594,7 @@ ol {
   top: 0.7em;
   width: 7px;
   height: 7px;
-  background: var(--pink);
+  background: var(--accent);
   transform: rotate(45deg);
 }
 
@@ -646,7 +681,7 @@ ol {
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
-  color: var(--pink);
+  color: var(--accent);
 }
 .about-title {
   margin-top: 14px;
@@ -661,7 +696,7 @@ ol {
   display: block;
 }
 .about-pink {
-  color: var(--pink);
+  color: var(--accent);
 }
 .about-lead {
   margin-top: 26px;
@@ -745,7 +780,7 @@ ol {
   font-size: 44px;
   line-height: 1;
   color: transparent;
-  -webkit-text-stroke: 1.5px var(--pink);
+  -webkit-text-stroke: 1.5px var(--accent);
 }
 .process h3 {
   margin-top: 18px;
@@ -809,8 +844,8 @@ ol {
   margin-top: 30px;
 }
 .contact-link:hover {
-  color: var(--pink);
-  border-color: var(--pink);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .form {
@@ -850,8 +885,8 @@ ol {
 .form input:focus,
 .form select:focus,
 .form textarea:focus {
-  border-color: var(--pink);
-  background: rgba(255, 53, 96, 0.06);
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.06);
 }
 .form-wide {
   grid-column: 1 / -1;
@@ -883,7 +918,7 @@ ol {
   font-size: 14px;
 }
 .footer a:hover {
-  color: var(--pink);
+  color: var(--accent);
 }
 
  /* ---------- clients strip ---------- */
@@ -959,7 +994,7 @@ ol {
   margin-top: clamp(36px, 5vw, 64px);
 }
 .sound-list li {
-  border-top: 2px solid var(--pink);
+  border-top: 2px solid var(--accent);
   padding-top: 22px;
 }
 .sound-list p {
@@ -998,7 +1033,7 @@ ol {
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.2em;
-  color: var(--pink);
+  color: var(--accent);
 }
 .why-item h3 {
   margin-top: 14px;
@@ -1020,14 +1055,14 @@ ol {
   margin-top: clamp(48px, 6vw, 80px);
   padding: clamp(24px, 3vw, 44px);
   background: var(--bg-2);
-  border-left: 4px solid var(--pink);
+  border-left: 4px solid var(--accent);
 }
 .stat-num {
   font-family: var(--display);
   font-weight: 800;
   font-size: clamp(44px, 7vw, 104px);
   line-height: 1;
-  color: var(--pink);
+  color: var(--accent);
 }
 .stat p {
   max-width: 420px;
@@ -1054,7 +1089,7 @@ ol {
 .quote {
   margin: 0;
   padding-top: 28px;
-  border-top: 2px solid var(--pink);
+  border-top: 2px solid var(--accent);
 }
 .quote blockquote {
   margin: 0;
@@ -1125,6 +1160,12 @@ ol {
   }
   .nav-links a:not(.btn) {
     font-size: 15px;
+  }
+  .nav-mid,
+  .nav-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
   }
   .contact-grid {
     grid-template-columns: 1fr;

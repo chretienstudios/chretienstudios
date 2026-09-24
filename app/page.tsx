@@ -6,14 +6,11 @@ import ContactForm from "@/components/ContactForm";
 import {
   ABOUT,
   CLIENTS,
-  PROCESS,
   SERVICES,
   SHOWCASE,
   SITE,
   SOUND_FAMILIAR,
-  STAT,
   TESTIMONIALS,
-  WHY,
 } from "@/lib/content";
 
 function Scribble() {
@@ -161,36 +158,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* WHY US */}
-        <section id="why" className="section">
-          <Reveal>
-            <h2 className="section-title">
-              Why <span className="u-wrap">clubs choose us<Scribble /></span>
-            </h2>
-          </Reveal>
-          <div className="why">
-            {WHY.map((w, i) => (
-              <Reveal key={w.n} delay={i * 90}>
-                <div className="why-item">
-                  <span className="why-n">{w.n}</span>
-                  <h3>{w.title}</h3>
-                  <p>{w.text}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal>
-            <div className="stat">
-              <span className="stat-num">{STAT.number}</span>
-              <p>
-                {STAT.label}
-                <small>{STAT.who}</small>
-              </p>
-            </div>
-          </Reveal>
-        </section>
-
         {/* STUDIO (about): add a photo by setting SITE.photo in lib/content.ts */}
         <section id="studio" className="section about">
           <div className="about-grid">
@@ -252,26 +219,6 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
-        </section>
-
-        {/* PROCESS */}
-        <section id="process" className="section">
-          <Reveal>
-            <h2 className="section-title">
-              How it <span className="u-wrap">works<Scribble /></span>
-            </h2>
-          </Reveal>
-          <ol className="process">
-            {PROCESS.map((p, i) => (
-              <li key={p.n}>
-                <Reveal delay={i * 90}>
-                  <span className="process-n">{p.n}</span>
-                  <h3>{p.title}</h3>
-                  <p>{p.text}</p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
         </section>
 
         {/* CONTACT */}
