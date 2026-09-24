@@ -8,7 +8,7 @@ export const SITE = {
 
 export const ABOUT = {
   credentials: [
-    { title: "Bachelor of Design and Architecture", school: "Ara Institute of Canterbury" },
+    { title: "Bachelor of Design and Architecture", school: "Ara Institute of Canterbury, Christchurch" },
     { title: "Master of Sport Management", school: "University of San Francisco" },
   ],
 };

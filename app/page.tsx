@@ -191,12 +191,12 @@ export default function Home() {
           </Reveal>
         </section>
 
-        {/* ABOUT: add a photo by setting SITE.photo in lib/content.ts */}
-        <section id="about" className="section about">
+        {/* STUDIO (about): add a photo by setting SITE.photo in lib/content.ts */}
+        <section id="studio" className="section about">
           <div className="about-grid">
             <Reveal>
               <div className="about-copy">
-                <p className="about-eyebrow">About</p>
+                <p className="about-eyebrow">Studio</p>
                 <h2 className="about-title">
                   <span>Trained in design.</span>
                   <span className="about-pink">Built for sport.</span>
