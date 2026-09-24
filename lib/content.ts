@@ -11,6 +11,8 @@ export type PosterData = {
   big?: string;
   /** Optional: path to a real image in /public, e.g. "/work/matchday-01.jpg" */
   image?: string;
+  /** Optional: CSS object-position for the image, e.g. "50% 10%" */
+  focus?: string;
   /** Three gradient colours */
   colors: [string, string, string];
 };
@@ -59,7 +61,13 @@ export const SERVICES = [
       "Signings & milestone posts",
       "Champions and milestone prints",
     ],
-    poster: { kicker: "Matchday", title: "Derby day", big: "VS", colors: PALETTE.pink } as PosterData,
+    poster: {
+      kicker: "Cashmere Technical FC",
+      title: "Matchday graphics",
+      image: "/work/cashmere-gameday.jpg",
+      focus: "50% 0%",
+      colors: PALETTE.pink,
+    } as PosterData,
   },
   {
     top: "Sponsorship",
@@ -72,7 +80,13 @@ export const SERVICES = [
       "Billboard & signage artwork",
       "Match-pack templates & magazines",
     ],
-    poster: { kicker: "Sponsorship", title: "Back the club", big: "$", colors: PALETTE.violet } as PosterData,
+    poster: {
+      kicker: "Cashmere Technical FC",
+      title: "2026 Sponsorship Opportunities",
+      image: "/work/cashmere-sponsorship-brochure.jpg",
+      focus: "50% 55%",
+      colors: PALETTE.violet,
+    } as PosterData,
   },
 ];
 
@@ -127,13 +141,37 @@ export const TESTIMONIALS = [
   },
 ];
 
-export const SHOWCASE: (PosterData & { tall?: boolean; wide?: boolean })[] = [
-  { kicker: "Matchday", title: "Harbour City", sub: "vs Northern Rovers · Sat 7:30PM", big: "VS", colors: PALETTE.pink },
-  { kicker: "Full time", title: "Harbour 3–1 Rovers", big: "3–1", colors: PALETTE.teal },
-  { kicker: "New signing", title: "Welcome to the club", big: "09", colors: PALETTE.gold },
-  { kicker: "Starting XI", title: "Your line-up", sub: "Round 12", big: "XI", colors: PALETTE.violet },
-  { kicker: "Player of the match", title: "Man of the match", big: "10", colors: PALETTE.blue },
-  { kicker: "Season launch", title: "Kick off", sub: "2027 campaign", big: "27", colors: PALETTE.red },
+export const SHOWCASE: (PosterData & { cls?: string })[] = [
+  {
+    kicker: "Cashmere Technical FC",
+    title: "Goal graphic",
+    image: "/work/cashmere-goal.jpg",
+    focus: "50% 30%",
+    colors: PALETTE.gold,
+    cls: "sc-goal",
+  },
+  {
+    kicker: "Cashmere Technical FC",
+    title: "2026 Sponsorship Opportunities",
+    image: "/work/cashmere-sponsorship-brochure.jpg",
+    focus: "50% 55%",
+    colors: PALETTE.gold,
+    cls: "sc-wide",
+  },
+  {
+    kicker: "Cashmere Technical FC",
+    title: "Gameday, Round 1",
+    image: "/work/cashmere-gameday.jpg",
+    focus: "50% 20%",
+    colors: PALETTE.gold,
+  },
+  {
+    kicker: "Cashmere Technical FC",
+    title: "Matchday programme",
+    image: "/work/cashmere-programme.jpg",
+    focus: "50% 50%",
+    colors: PALETTE.teal,
+  },
 ];
 
 export const PROCESS = [

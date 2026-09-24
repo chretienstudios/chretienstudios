@@ -581,6 +581,55 @@ ol {
 .showcase .tall {
   grid-row: span 2;
 }
+.showcase .sc-goal {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+.showcase .sc-goal .poster {
+  aspect-ratio: auto;
+  height: 100%;
+}
+.showcase .sc-wide {
+  grid-column: 2 / span 2;
+}
+.showcase .sc-wide .poster {
+  aspect-ratio: 16 / 10;
+}
+
+/* real work: image only, caption on hover */
+.poster-real .poster-streaks,
+.poster-real .poster-big {
+  display: none;
+}
+.poster-real {
+  background: var(--bg-2);
+}
+.poster-real::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 45%;
+  z-index: 2;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.poster-real .poster-kicker,
+.poster-real .poster-copy {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.poster-real:hover::after,
+.poster-real:hover .poster-kicker,
+.poster-real:hover .poster-copy {
+  opacity: 1;
+}
+/* brochure mock-up has a lot of empty backdrop: zoom in on the book */
+.poster-real .poster-img[src*="brochure"] {
+  transform: scale(1.35);
+  transform-origin: 50% 55%;
+}
 .showcase .poster-big {
   font-size: clamp(90px, 10vw, 160px);
 }
@@ -950,6 +999,9 @@ ol {
   .showcase {
     grid-template-columns: repeat(2, 1fr);
   }
+  .showcase .sc-wide {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 860px) {
@@ -1001,6 +1053,16 @@ ol {
   }
   .showcase .tall {
     grid-row: auto;
+  }
+  .showcase .sc-goal {
+    grid-row: auto;
+  }
+  .showcase .sc-goal .poster {
+    aspect-ratio: 9 / 14;
+    height: auto;
+  }
+  .showcase .sc-wide {
+    grid-column: auto;
   }
   .ticker-track span {
     font-size: 15px;

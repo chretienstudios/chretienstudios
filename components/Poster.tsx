@@ -3,7 +3,7 @@ import type { PosterData } from "@/lib/content";
 
 type Props = PosterData & { className?: string };
 
-export default function Poster({ kicker, title, sub, big, image, colors, className = "" }: Props) {
+export default function Poster({ kicker, title, sub, big, image, focus, colors, className = "" }: Props) {
   const style = {
     "--a": colors[0],
     "--b": colors[1],
@@ -11,10 +11,10 @@ export default function Poster({ kicker, title, sub, big, image, colors, classNa
   } as CSSProperties;
 
   return (
-    <article className={`poster ${className}`} style={style}>
+    <article className={`poster ${image ? "poster-real" : ""} ${className}`} style={style}>
       {image ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img className="poster-img" src={image} alt={`${kicker}: ${title}`} loading="lazy" />
+        <img className="poster-img" src={image} alt={`${kicker}: ${title}`} loading="lazy" style={focus ? { objectPosition: focus } : undefined} />
       ) : null}
       <div className="poster-streaks" aria-hidden="true" />
       {big ? (

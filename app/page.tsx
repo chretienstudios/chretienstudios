@@ -145,15 +145,15 @@ export default function Home() {
                 Built for <span className="u-wrap">the crowd<Scribble /></span>
               </h2>
               <p className="section-note">
-                Sample matchday concepts. Every club gets a system made for them, not an off-the-shelf
-                template.
+                Recent work for Cashmere Technical FC. Every club gets a system made for them, not an
+                off-the-shelf template.
               </p>
             </div>
           </Reveal>
 
           <div className="showcase">
             {SHOWCASE.map((p, i) => (
-              <Reveal key={p.title} delay={(i % 3) * 100} className={p.tall ? "tall" : ""}>
+              <Reveal key={p.title} delay={(i % 3) * 100} className={p.cls ?? ""}>
                 <Poster {...p} />
               </Reveal>
             ))}
