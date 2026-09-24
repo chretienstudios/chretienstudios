@@ -2,6 +2,15 @@ export const SITE = {
   name: "chrétienstudios",
   email: "chretienstudios@gmail.com",
   instagram: "https://www.instagram.com/chretienstudios/",
+  /** Portrait for the About section, e.g. "/about/max.jpg" (put the file in /public/about). Leave empty for a blank frame. */
+  photo: "/about/max.jpg",
+};
+
+export const ABOUT = {
+  credentials: [
+    { title: "Bachelor of Design and Architecture", school: "Ara Institute of Canterbury" },
+    { title: "Master of Sport Management", school: "University of San Francisco" },
+  ],
 };
 
 export type PosterData = {
@@ -31,6 +40,7 @@ export const CLIENTS = [
   "Cashmere Technical",
   "Wagner and Woolf",
   "Academica Soccer Club",
+  "San Francisco Glens",
   "Knattspyrnudeild Aftureldingar",
   "Napier City Rovers",
   "Ngaruawahia United",

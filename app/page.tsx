@@ -4,6 +4,7 @@ import Poster from "@/components/Poster";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
 import {
+  ABOUT,
   CLIENTS,
   PROCESS,
   SERVICES,
@@ -188,6 +189,47 @@ export default function Home() {
               </p>
             </div>
           </Reveal>
+        </section>
+
+        {/* ABOUT: add a photo by setting SITE.photo in lib/content.ts */}
+        <section id="about" className="section about">
+          <div className="about-grid">
+            <Reveal>
+              <div className="about-copy">
+                <p className="about-eyebrow">About</p>
+                <h2 className="about-title">
+                  <span>Trained in design.</span>
+                  <span className="about-pink">Built for sport.</span>
+                </h2>
+                <p className="about-lead">
+                  I&apos;m Max, the designer behind chrétienstudios. My training covers both sides of the
+                  job: how a brand should look, and how a sports organisation actually runs.
+                </p>
+                <ul className="about-creds">
+                  {ABOUT.credentials.map((c) => (
+                    <li key={c.title}>
+                      <strong>{c.title}</strong>
+                      <span>{c.school}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="about-note">
+                  When you work with chrétienstudios, you work with me, from first idea to final file.
+                </p>
+                <a href="#contact" className="btn btn-pink">
+                  Start a project
+                </a>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="about-photo">
+                {SITE.photo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={SITE.photo} alt="Max Chretien, designer and founder of chrétienstudios" />
+                ) : null}
+              </div>
+            </Reveal>
+          </div>
         </section>
 
         {/* TESTIMONIALS */}
