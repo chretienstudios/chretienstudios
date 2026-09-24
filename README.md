@@ -18,4 +18,4 @@ Push to GitHub, then import the repo at vercel.com/new. Vercel detects Next.js a
 - Copy, services, showcase and process steps: `lib/content.ts`
 - Colours and layout: `app/globals.css` (CSS variables at the top)
 - Real work images: drop files in `public/work/` and add `image: "/work/your-file.jpg"` to any poster in `lib/content.ts`
-- Contact form: currently opens the visitor's email app (`components/ContactForm.tsx`). Swap in Formspree/Resend for in-page sending.
+- Contact form: sends enquiries to your inbox through Web3Forms (`components/ContactForm.tsx`). In Vercel, add the environment variable `NEXT_PUBLIC_WEB3FORMS_KEY` with your access key, then redeploy. Without the key it falls back to opening the visitor's email app.

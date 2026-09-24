@@ -8,8 +8,8 @@ export const SITE = {
 
 export const ABOUT = {
   credentials: [
-    { title: "Bachelor of Design and Architecture", school: "Ara Institute of Canterbury, Christchurch" },
-    { title: "Master of Sport Management", school: "University of San Francisco" },
+    { title: "Bachelor of Design and Architecture", school: "Ara Institute of Canterbury, Christchurch", logo: "/about/ara.png" },
+    { title: "Master of Sport Management", school: "University of San Francisco, California", logo: "/about/usf.png" },
   ],
 };
 
@@ -99,6 +99,96 @@ export const SERVICES = [
     } as PosterData,
   },
 ];
+
+export type Package = {
+  name: string;
+  term: string;
+  blurb: string;
+  includes: string[];
+  featured?: boolean;
+  badge?: string;
+  image?: string;
+  focus?: string;
+};
+
+export const PACKAGES = {
+  title: "Creative packages",
+  intro:
+    "Reliable, ongoing design support throughout the year, so you get professional sports-focused content without having to manage individual design requests. Our 2027 creative partnerships are year-round, full service packages designed for you.",
+  clubs: [
+    {
+      name: "Core",
+      term: "Matchday essentials",
+      image: "/packages/wagner-woolf.jpg",
+      focus: "50% 45%",
+      blurb: "The matchday essentials without the retainer. The core set every club needs each week, delivered with a consistent club identity.",
+      includes: ["Matchday graphics", "Team lineups", "Goals / HT / FT", "Player announcements", "Canva-editable files"],
+    },
+    {
+      name: "Plus",
+      term: "Season-long support",
+      image: "/packages/afturelding.jpg",
+      focus: "50% 50%",
+      blurb:
+        "Flexible creative support for clubs that need reliable, professional matchday content throughout the season. From lineups and matchday graphics to goals, HT/FT, player announcements and fixtures, delivered with a consistent club identity, Canva-editable files and quick turnaround.",
+      includes: [
+        "Full professional photoshoot",
+        "Matchday graphics",
+        "Team lineups",
+        "Goals / HT / FT",
+        "Player announcements",
+        "Canva-editable files",
+        "Priority turnaround",
+      ],
+    },
+    {
+      name: "Pro",
+      term: "Full-year partnership",
+      image: "/packages/cashmere-programme.jpg",
+      focus: "50% 50%",
+      blurb:
+        "A dedicated creative partnership for clubs looking for ongoing design support across the entire season. We work alongside your club across matchday content, sponsorship and commercial assets, coaching materials, campaigns and key club communications.",
+      includes: [
+        "Everything in Creative Plus",
+        "Sponsorship / partnership decks",
+        "Physical & digital matchday magazines",
+        "Coaching handbooks",
+        "Club presentations",
+        "Campaign creative",
+      ],
+      featured: true,
+      badge: "Most popular",
+    },
+  ] as Package[],
+  agencies: [
+    {
+      name: "Plus",
+      term: "Per graphic",
+      blurb:
+        "Professional commitment and signing graphics for each player. Simply send through the player details and imagery available, and we'll create a polished announcement graphic ready to share across social media.",
+      includes: ["Player commitment announcements", "Signing & recruitment graphics", "Customised to your brand", "3-day turnaround"],
+    },
+    {
+      name: "Pro",
+      term: "Monthly retainer",
+      blurb:
+        "Ongoing creative support for agencies looking for a dedicated sports design partner. Priority access to chrétienstudios for player graphics, social content, recruitment campaigns and reactive creative, all covered under one simple monthly retainer.",
+      includes: [
+        "Everything in Creative Plus",
+        "Priority creative support",
+        "Agency-wide design support",
+        "Priority creative turnaround",
+        "Reactive digital assets",
+      ],
+      featured: true,
+    },
+  ] as Package[],
+  quote: {
+    text: "ChretienStudios has completely elevated the way we present our club. The quality, consistency and turnaround have made our matchday content so much easier to manage.",
+    name: "Phil Williams",
+    role: "GM, Cashmere Technical Football Club",
+  },
+};
 
 export const SOUND_FAMILIAR = [
   "You're a small team with no in-house designer.",

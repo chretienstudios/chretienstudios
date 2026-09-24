@@ -4,33 +4,74 @@ import { useState, type FormEvent } from "react";
 import { SITE } from "@/lib/content";
 
 /**
- * Opens the visitor's email app with the enquiry pre-filled.
- * Swap for a Formspree / Resend / server action if you want in-page submission.
+ * Sends the enquiry straight to the studio inbox via Web3Forms.
+ * Needs NEXT_PUBLIC_WEB3FORMS_KEY (set in Vercel). Without it, falls back to
+ * opening the visitor's email app so the form never breaks.
  */
-export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+const ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
 
-  function onSubmit(e: FormEvent<HTMLFormElement>) {
+type Status = "idle" | "sending" | "sent" | "error";
+
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const f = new FormData(e.currentTarget);
+    const form = e.currentTarget;
+    const f = new FormData(form);
     const get = (k: string) => String(f.get(k) ?? "").trim();
 
-    const subject = `Enquiry from ${get("org") || get("name")}`;
-    const body = [
-      `Name: ${get("name")}`,
-      `Club / organisation: ${get("org")}`,
-      `Email: ${get("email")}`,
-      `Looking for: ${get("need")}`,
-      "",
-      get("message"),
-    ].join("\n");
+    // honeypot: real people never fill this in
+    if (get("botcheck")) return;
 
-    window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setSent(true);
+    const subject = `Enquiry from ${get("org") || get("name")}`;
+
+    if (!ACCESS_KEY) {
+      const body = [
+        `Name: ${get("name")}`,
+        `Club / organisation: ${get("org")}`,
+        `Email: ${get("email")}`,
+        `Looking for: ${get("need")}`,
+        "",
+        get("message"),
+      ].join("\n");
+      window.location.href = `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      setStatus("sent");
+      return;
+    }
+
+    setStatus("sending");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          subject,
+          from_name: "chrétienstudios website",
+          name: get("name"),
+          club_or_agency: get("org"),
+          email: get("email"),
+          replyto: get("email"),
+          looking_for: get("need"),
+          message: get("message"),
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
+        form.reset();
+        setStatus("sent");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   return (
     <form className="form" onSubmit={onSubmit}>
+      <input type="text" name="botcheck" tabIndex={-1} autoComplete="off" aria-hidden="true" style={{ display: "none" }} />
       <label>
         <span>Your name</span>
         <input name="name" required autoComplete="name" placeholder="Alex Morgan" />
@@ -57,10 +98,17 @@ export default function ContactForm() {
         <textarea name="message" rows={4} placeholder="Where you are now, and where you want to be…" />
       </label>
       <div className="form-wide form-actions">
-        <button type="submit" className="btn btn-pink">
-          Send enquiry
+        <button type="submit" className="btn btn-pink" disabled={status === "sending"}>
+          {status === "sending" ? "Sending…" : "Send enquiry"}
         </button>
-        {sent ? <small role="status">Opening your email app…</small> : null}
+        {status === "sent" ? (
+          <small role="status">{ACCESS_KEY ? "Thanks, your enquiry is in. I'll reply within a day or two." : "Opening your email app…"}</small>
+        ) : null}
+        {status === "error" ? (
+          <small role="alert">
+            Something went wrong. Please email <a href={`mailto:${SITE.email}`}>{SITE.email}</a> instead.
+          </small>
+        ) : null}
       </div>
     </form>
   );

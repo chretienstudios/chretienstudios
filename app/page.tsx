@@ -6,12 +6,14 @@ import ContactForm from "@/components/ContactForm";
 import {
   ABOUT,
   CLIENTS,
+  PACKAGES,
   SERVICES,
   SHOWCASE,
   SITE,
   SOUND_FAMILIAR,
   TESTIMONIALS,
 } from "@/lib/content";
+import type { Package } from "@/lib/content";
 
 function Scribble() {
   return (
@@ -109,6 +111,51 @@ export default function Home() {
           </div>
         </section>
 
+        {/* PACKAGES */}
+        <section id="packages" className="section packages">
+          <Reveal>
+            <div className="section-head">
+              <h2 className="section-title">
+                Creative <span className="u-wrap">packages<Scribble /></span>
+              </h2>
+              <p className="section-note pkg-intro">{PACKAGES.intro}</p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <p className="pkg-label">For clubs</p>
+          </Reveal>
+          <div className="pkg-grid">
+            {PACKAGES.clubs.map((p, i) => (
+              <Reveal key={p.name} delay={i * 110}>
+                <PackageCard p={p} />
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal>
+            <figure className="pkg-quote">
+              <blockquote>&ldquo;{PACKAGES.quote.text}&rdquo;</blockquote>
+              <figcaption>
+                <strong>{PACKAGES.quote.name}</strong>
+                <span>{PACKAGES.quote.role}</span>
+              </figcaption>
+            </figure>
+          </Reveal>
+
+          <Reveal>
+            <p className="pkg-label pkg-label-2">For agencies</p>
+          </Reveal>
+          <div className="pkg-grid pkg-grid-2">
+            {PACKAGES.agencies.map((p, i) => (
+              <Reveal key={p.name} delay={i * 110}>
+                <PackageCard p={p} />
+              </Reveal>
+            ))}
+          </div>
+          <p className="pkg-foot">Not sure which fits? Tell me about your club and I&apos;ll point you to the right one, with a clear quote.</p>
+        </section>
+
         {/* SOUND FAMILIAR */}
         <section className="section sound">
           <Reveal>
@@ -175,8 +222,12 @@ export default function Home() {
                 <ul className="about-creds">
                   {ABOUT.credentials.map((c) => (
                     <li key={c.title}>
-                      <strong>{c.title}</strong>
-                      <span>{c.school}</span>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img className="cred-logo" src={c.logo} alt="" width={56} height={56} loading="lazy" />
+                      <div className="cred-text">
+                        <strong>{c.title}</strong>
+                        <span>{c.school}</span>
+                      </div>
                     </li>
                   ))}
                 </ul>
@@ -259,5 +310,31 @@ export default function Home() {
         </a>
       </footer>
     </>
+  );
+}
+
+function PackageCard({ p }: { p: Package }) {
+  return (
+    <article className={`pkg${p.featured ? " pkg-featured" : ""}`}>
+      {p.badge && <span className="pkg-badge">{p.badge}</span>}
+      {p.image && (
+        <div className="pkg-media">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={p.image} alt="" loading="lazy" style={{ objectPosition: p.focus || "50% 50%" }} />
+        </div>
+      )}
+      <p className="pkg-kicker">Creative</p>
+      <h3 className="pkg-name">{p.name}</h3>
+      <p className="pkg-term">{p.term}</p>
+      <p className="pkg-blurb">{p.blurb}</p>
+      <ul className="pkg-list">
+        {p.includes.map((x) => (
+          <li key={x}>{x}</li>
+        ))}
+      </ul>
+      <a href="#contact" className={`btn ${p.featured ? "btn-pink" : "btn-ink"}`}>
+        Enquire
+      </a>
+    </article>
   );
 }

@@ -5,6 +5,7 @@ import { SITE } from "@/lib/content";
 
 const LINKS = [
   { href: "#services", label: "Services" },
+  { href: "#packages", label: "Packages" },
   { href: "#work", label: "Work" },
   { href: "#studio", label: "Studio" },
 ];
