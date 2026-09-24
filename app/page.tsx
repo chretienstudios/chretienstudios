@@ -64,9 +64,19 @@ export default function Home() {
         <Reveal>
           <div className="clients">
             <span className="clients-label">Trusted by</span>
-            {CLIENTS.map((c) => (
-              <span key={c} className="clients-name">{c}</span>
-            ))}
+            <div className="marquee">
+              <div className="marquee-track">
+                {[0, 1].map((copy) => (
+                  <ul key={copy} className="marquee-list" aria-hidden={copy === 1}>
+                    {CLIENTS.map((c) => (
+                      <li key={c} className="clients-name">
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                ))}
+              </div>
+            </div>
           </div>
         </Reveal>
 

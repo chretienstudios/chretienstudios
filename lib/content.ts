@@ -29,6 +29,7 @@ export const CLIENTS = [
   "Cashmere Technical",
   "Wagner and Woolf",
   "Academica Soccer Club",
+  "Knattspyrnudeild Aftureldingar",
   "Napier City Rovers",
   "Ngaruawahia United",
 ];

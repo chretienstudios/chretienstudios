@@ -743,30 +743,69 @@ ol {
   color: var(--pink);
 }
 
-/* ---------- clients strip ---------- */
+ /* ---------- clients strip ---------- */
 .clients {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
-  gap: 14px clamp(24px, 4vw, 56px);
-  padding: 30px var(--pad);
+  gap: clamp(20px, 3vw, 40px);
+  padding: 26px var(--pad);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 .clients-label {
+  flex: none;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--mute);
+  white-space: nowrap;
+}
+.marquee {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 38s linear infinite;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-list {
+  display: flex;
+  flex: none;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 .clients-name {
+  flex: none;
+  white-space: nowrap;
+  padding-right: clamp(36px, 5vw, 72px);
   font-family: var(--display);
   font-weight: 700;
   font-size: clamp(14px, 1.5vw, 20px);
   text-transform: uppercase;
   color: #d0d0d6;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+@media (max-width: 640px) {
+  .clients {
+    gap: 14px;
+  }
+  .clients-label {
+    letter-spacing: 0.18em;
+  }
 }
 
 /* ---------- sound familiar ---------- */
@@ -972,6 +1011,7 @@ ol {
   html {
     scroll-behavior: auto;
   }
+  .marquee-track,
   .ticker-track,
   .hero-bg,
   .hero-mark,
