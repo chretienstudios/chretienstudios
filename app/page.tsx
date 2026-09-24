@@ -3,7 +3,6 @@ import { Wordmark } from "@/components/Nav";
 import Poster from "@/components/Poster";
 import Reveal from "@/components/Reveal";
 import ContactForm from "@/components/ContactForm";
-import ClientLogo from "@/components/ClientLogo";
 import {
   CLIENTS,
   PROCESS,
@@ -66,7 +65,7 @@ export default function Home() {
           <div className="clients">
             <span className="clients-label">Trusted by</span>
             {CLIENTS.map((c) => (
-              <ClientLogo key={c.name} name={c.name} src={c.logo} />
+              <span key={c} className="clients-name">{c}</span>
             ))}
           </div>
         </Reveal>
