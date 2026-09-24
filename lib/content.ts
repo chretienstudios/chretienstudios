@@ -121,14 +121,14 @@ export const PACKAGES = {
     "Reliable, ongoing design support throughout the year, so you get professional sports-focused content without having to manage individual design requests. Our 2027 creative partnerships are year-round, full service packages designed for you.",
   clubs: [
     {
-      name: "Core",
-      term: "Matchday essentials",
+      name: "Matchday",
+      term: "Weekly graphics",
       blurb: "The matchday essentials without the retainer. The core set every club needs each week, delivered with a consistent club identity.",
       includes: ["Matchday graphics", "Team lineups", "Goals / HT / FT", "Player announcements", "Canva-editable files"],
     },
     {
-      name: "Plus",
-      term: "Season-long support",
+      name: "Season",
+      term: "Full-season support",
       blurb:
         "Flexible creative support for clubs that need reliable, professional matchday content throughout the season. From lineups and matchday graphics to goals, HT/FT, player announcements and fixtures, delivered with a consistent club identity, Canva-editable files and quick turnaround.",
       includes: [
@@ -142,12 +142,12 @@ export const PACKAGES = {
       ],
     },
     {
-      name: "Pro",
-      term: "Full-year partnership",
+      name: "Partnership",
+      term: "Year-round, whole club",
       blurb:
         "A dedicated creative partnership for clubs looking for ongoing design support across the entire season. We work alongside your club across matchday content, sponsorship and commercial assets, coaching materials, campaigns and key club communications.",
       includes: [
-        "Everything in Creative Plus",
+        "Everything in Creative Season",
         "Sponsorship / partnership decks",
         "Physical & digital matchday magazines",
         "Coaching handbooks",
