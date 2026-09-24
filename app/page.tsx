@@ -317,12 +317,6 @@ function PackageCard({ p }: { p: Package }) {
   return (
     <article className={`pkg${p.featured ? " pkg-featured" : ""}`}>
       {p.badge && <span className="pkg-badge">{p.badge}</span>}
-      {p.image && (
-        <div className="pkg-media">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={p.image} alt="" loading="lazy" style={{ objectPosition: p.focus || "50% 50%" }} />
-        </div>
-      )}
       <p className="pkg-kicker">Creative</p>
       <h3 className="pkg-name">{p.name}</h3>
       <p className="pkg-term">{p.term}</p>

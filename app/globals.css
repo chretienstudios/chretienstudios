@@ -4,7 +4,7 @@
   --bg-2: #f3f3f5;
   --ink: #0a0a0a;
   --mute: #5f5f6a;
-  --accent: #ff3560;
+  --accent: #0a0a0a;
   --line: rgba(10, 10, 10, 0.12);
   --display: var(--font-display), "Helvetica Neue", Arial, sans-serif;
   --body: var(--font-body), "Helvetica Neue", Arial, sans-serif;
@@ -560,7 +560,7 @@ ol {
   margin-top: clamp(40px, 6vw, 80px);
 }
 .service-poster {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 4 / 5;
   margin-bottom: 36px;
 }
 .service-poster .poster-big {
@@ -1221,18 +1221,6 @@ ol {
   letter-spacing: 0.2em;
   text-transform: uppercase;
 }
-.pkg-media {
-  margin: calc(var(--pkg-pad) * -1) calc(var(--pkg-pad) * -1) 24px;
-  aspect-ratio: 5 / 6;
-  overflow: hidden;
-  background: #111;
-}
-.pkg-media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
 .pkg-kicker {
   font-family: var(--display);
   font-weight: 800;
@@ -1461,4 +1449,56 @@ ol {
   .why {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* ---------- monochrome: no pink accent ---------- */
+:root {
+  --accent: #0a0a0a;
+}
+.hero,
+.nav,
+.footer,
+.pkg-featured {
+  --accent: #ffffff;
+}
+::selection {
+  background: #0a0a0a;
+  color: #fff;
+}
+.btn-pink {
+  background: #0a0a0a;
+  color: #fff;
+  box-shadow: none;
+}
+.btn-pink:hover {
+  background: #3a3a3a;
+  color: #fff;
+}
+.hero .btn-pink,
+.footer .btn-pink,
+.pkg-featured .btn-pink {
+  background: #fff;
+  color: #0a0a0a;
+}
+.hero .btn-pink:hover,
+.footer .btn-pink:hover,
+.pkg-featured .btn-pink:hover {
+  background: #e2e2e2;
+  color: #0a0a0a;
+}
+.btn-light:hover {
+  background: #e2e2e2;
+  color: #111;
+}
+.btn-ink:hover {
+  background: #3a3a3a;
+}
+.pkg-badge {
+  background: #fff;
+  color: #0a0a0a;
+}
+.about-pink,
+.contact-title .h1-pink {
+  color: #8a8a94;
 }

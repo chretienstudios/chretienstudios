@@ -58,7 +58,13 @@ export const SERVICES = [
       "Brand guidelines",
       "Sponsor lock-ups & merchandise",
     ],
-    poster: { kicker: "Brand identity", title: "New era", big: "FC", colors: PALETTE.red } as PosterData,
+    poster: {
+      kicker: "Wagner and Woolf",
+      title: "Player commitment graphic",
+      image: "/work/wagner-woolf-commitment.jpg",
+      focus: "50% 45%",
+      colors: PALETTE.blue,
+    } as PosterData,
   },
   {
     top: "Matchday",
@@ -72,11 +78,11 @@ export const SERVICES = [
       "Champions and milestone prints",
     ],
     poster: {
-      kicker: "Cashmere Technical FC",
-      title: "Matchday graphics",
-      image: "/work/cashmere-gameday.jpg",
-      focus: "50% 0%",
-      colors: PALETTE.pink,
+      kicker: "Afturelding",
+      title: "Matchday graphics and programme",
+      image: "/work/afturelding-matchday.jpg",
+      focus: "50% 30%",
+      colors: PALETTE.red,
     } as PosterData,
   },
   {
@@ -92,9 +98,9 @@ export const SERVICES = [
     ],
     poster: {
       kicker: "Cashmere Technical FC",
-      title: "2026 Sponsorship Opportunities",
-      image: "/work/cashmere-sponsorship-brochure.jpg",
-      focus: "50% 55%",
+      title: "Gameday graphic",
+      image: "/work/cashmere-gameday.jpg",
+      focus: "50% 50%",
       colors: PALETTE.violet,
     } as PosterData,
   },
@@ -107,8 +113,6 @@ export type Package = {
   includes: string[];
   featured?: boolean;
   badge?: string;
-  image?: string;
-  focus?: string;
 };
 
 export const PACKAGES = {
@@ -119,16 +123,12 @@ export const PACKAGES = {
     {
       name: "Core",
       term: "Matchday essentials",
-      image: "/packages/wagner-woolf.jpg",
-      focus: "50% 45%",
       blurb: "The matchday essentials without the retainer. The core set every club needs each week, delivered with a consistent club identity.",
       includes: ["Matchday graphics", "Team lineups", "Goals / HT / FT", "Player announcements", "Canva-editable files"],
     },
     {
       name: "Plus",
       term: "Season-long support",
-      image: "/packages/afturelding.jpg",
-      focus: "50% 50%",
       blurb:
         "Flexible creative support for clubs that need reliable, professional matchday content throughout the season. From lineups and matchday graphics to goals, HT/FT, player announcements and fixtures, delivered with a consistent club identity, Canva-editable files and quick turnaround.",
       includes: [
@@ -144,8 +144,6 @@ export const PACKAGES = {
     {
       name: "Pro",
       term: "Full-year partnership",
-      image: "/packages/cashmere-programme.jpg",
-      focus: "50% 50%",
       blurb:
         "A dedicated creative partnership for clubs looking for ongoing design support across the entire season. We work alongside your club across matchday content, sponsorship and commercial assets, coaching materials, campaigns and key club communications.",
       includes: [
